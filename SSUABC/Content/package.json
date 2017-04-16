@@ -1,0 +1,14 @@
+{
+  "name": "CAEF",
+  "version": "1.0.0",
+  "description": "FRONT-END",
+  "author": "Eduardo Escalona",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "1.6.4",
+    "angular-crypto": "0.0.3",
+    "angular-route": "1.6.4",
+    "bootstrap": "3.3.7",
+    "jquery": "3.2.1"
+  }
+}

@@ -1,0 +1,46 @@
+<div ng-controller="usuarioCtrl">
+    <div class="container">
+        <div myheader></div>
+        <div class="row">
+            <div mymenu></div>
+            <div class="col-md-offset-1 col-lg-offset-1 col-sm-4 col-md-4 col-lg-4">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="#">Agregar</a></li>
+                    <li role="presentation"><a href="" ng-click="redirect('/CAEF/usuario/listar')">Listar</a></li>
+                </ul>
+                <h3>Agregar usuario aceadémico</h3>
+                <form name="myForm">
+                    <div class="form-group">
+                        <label for="id">N&uacute;mero de empleado:/label>
+                        <input type="number" class="form-control" name="id" placeholder="n&uacute;mero" ng-model="usuario.id" ng-pattern="regex.numero" required>
+                        <div ng-show="!myForm.id.$valid" role="alert">
+                            <div class="alert alert-danger" ng-show="myForm.id.$touched && myForm.id.$error.required" ng-message="myForm.id.$error.required"> <strong>¡ERROR!</strong> Este campo es obligatorio</div>
+                            <div class="alert alert-danger" ng-show="myForm.id.$touched && myForm.id.$error.number" ng-message="myForm.id.$error.pattern"> <strong>¡ERROR!</strong>Este campo contiene carácteres </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email" class="form-control" name="correo" placeholder="usuario@uabc.edu.mx" ng-model="usuario.correo" ng-pattern="regex.correo" required>
+                        <div ng-show="!myForm.correo.$valid" role="alert">
+                            <div class="alert alert-danger" ng-show="myForm.correo.$touched && myForm.correo.$error.required" ng-message="myForm.correo.$error.required"> <strong>¡ERROR!</strong> Este campo es obligatorio</div>
+                            <div class="alert alert-danger" ng-show="myForm.correo.$touched && myForm.correo.$error.pattern" ng-message="myForm.correo.$error.pattern"> <strong>¡ERROR!</strong>Este correo no pertenece a la UABC</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rolEmpleado">Rol del usuario:</label>
+                        <br>
+
+                        <select class="form-control input-sm" requiered>
+                           <option ng-repeat="rol in roles" value="rol.id">{{rol.nombre}}</option>
+                         </select>
+
+                    </div>
+
+                    <button class="btn btn-primary pull-right" ng-disabled="!myForm.$valid" class="btn btn-primary">Agregar</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div myyfooter></div>
+</div>

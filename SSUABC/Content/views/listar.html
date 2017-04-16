@@ -1,0 +1,41 @@
+
+<div ng-controller="usuarioCtrl" ng-init="listarUsuarios()">
+    <div class="container">
+        <div myheader></div>
+        <div class="row">
+            <div mymenu></div>
+            <div class="col-md-offset-1 col-lg-offset-1 col-sm-8 col-md-6 col-lg-8">
+                <ul class="nav nav-tabs">
+                    <li role="presentation"><a href="" ng-click="redirect('/CAEF/usuario/agregar')">Agregar</a></li>
+                    <li role="presentation" class="active"><a href="" ng-click="redirect('/CAEF/usuario/listar')">Listar</a></li>
+                </ul>
+                <h3>Lista de Usuarios</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido Paterno</th>
+                        <th>Correo electrónico</th>
+                        <th>Rol</th>
+                        <th>Editar</th>
+                        <th>Borrar</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="usuario in usuarios">
+                            <td>{{usuario.Id}}</td>
+                            <td>{{usuario.Correo}}</td>
+                            <td>{{usuario.Rol.Nombre}}</td>
+                            <td><button type="button" class="btn btn-primary btn-xs glyphicon glyphicon-edit" data-toggle="modal" data-target="#editar"></button></td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-xs glyphicon glyphicon-trash" data-toggle="modal" data-target="#eliminar"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div mydelete></div>
+        <div myedit></div>
+    </div>
+    <div myfooter></div>
+</div>

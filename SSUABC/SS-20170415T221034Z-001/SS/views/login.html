@@ -1,0 +1,33 @@
+<div class="container">
+    <div myheader></div>
+    <h2 class="text-center">Bienvenido al Sistema de Solicitudes de Salida</h2>
+    <div>
+        <!--Formulario para iniciar sesión-->
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-lg-offset-3 col-md-offset-3">
+                <div class="jumbotron">
+                    <form name="myForm">
+                        <h3 class="text-center">Acceso al Sistema</h3>
+                        <div class="form-group">
+                            <label for="correo">Correo electrónico:</label>
+                            <input type="email" class="form-control" name="correo" placeholder="usuario@uabc.edu.mx" ng-model="usuario.correo" ng-pattern="regex.correo" required>
+                            <div ng-show="!myForm.correo.$valid" role="alert">
+                                <div class="alert alert-danger" ng-show="myForm.correo.$touched && myForm.correo.$error.required" ng-message="myForm.correo.$error.required"> <strong>¡ERROR!</strong> Este campo es obligatorio</div>
+                                <div class="alert alert-danger" ng-show="myForm.correo.$touched && myForm.correo.$error.pattern" ng-message="myForm.correo.$error.pattern"> <strong>¡ERROR!</strong>Este correo no pertenece a la UABC</div>
+                            </div>
+                            <br>
+                        <label for="pwd">Contraseña:</label>
+                          <input type="password" class="form-control" name="pswd" placeholder="Password" ng-model="usuario.password" required>
+                            <div ng-show="!myForm.pswd.$valid" role="alert">
+                                <div class="alert alert-danger" ng-show="myForm.pswd.$touched && myForm.pswd.$error.required" ng-message="myForm.correo.$error.required"> <strong>¡ERROR!</strong> Este campo es obligatorio</div>
+                            </div>
+                        </div>    
+                      
+                        <button id="myButton" type="button" class="btn btn-primary pull-right" ng-disabled="!myForm.$valid">Ingresar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div myfooter></div>
+</div>

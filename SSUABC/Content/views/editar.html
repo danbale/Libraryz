@@ -1,0 +1,38 @@
+<div class="modal fade" id="editar">
+    <form name="myForm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--Header de la ventana-->
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Editar datos </h3>
+                </div>
+                <div class="modal-body">
+                    <!--Contenido de la ventana-->
+                    <label>N&uacute;mero de empleado:</label>
+                    <input type="number" class="form-control input-sm" name="id" placeholder="Id Empleado" ng-model="usuario.id" ng-pattern="regex.numero" required>
+                    <div ng-show="!myForm.id.$valid" role="alert">
+                        <div class="alert alert-danger" ng-show="myForm.id.$touched && myForm.id.$error.required" ng-message="myForm.id.$error.required"> <strong>¡ERROR!</strong> Este campo es obligatorio</div>
+                        <div class="alert alert-danger" ng-show="myForm.id.$touched && myForm.id.$error.number" ng-message="myForm.id.$error.pattern"> <strong>¡ERROR!</strong>Este campo contiene carácteres </div>
+                    </div>
+                    <br/>
+                    <label>Correo:</label>
+                    <input type="email" class="form-control input-sm" name="correo" placeholder="usuario@uabc.edu.mx" ng-model="usuario.correo" ng-pattern="regex.correo" required>
+                    <div ng-show="!myForm.correo.$valid" role="alert">
+                        <div class="alert alert-danger" ng-show="myForm.correo.$touched && myForm.correo.$error.required" ng-message="myForm.correo.$error.required"> <strong>¡ERROR!</strong> Este campo es obligatorio</div>
+                        <div class="alert alert-danger" ng-show="myForm.correo.$touched && myForm.correo.$error.pattern" ng-message="myForm.correo.$error.pattern"> <strong>¡ERROR!</strong>Este correo no pertenece a la UABC</div>
+                    </div>
+                    <br/>
+                    <label>Rol:</label>
+                    <select class="form-control input-sm">
+                        <option ng-repeat="rol in roles" value="rol.id">{{rol.nombre}}</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <!--Footer de la ventana-->
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </form>
